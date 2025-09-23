@@ -70,7 +70,7 @@ endif
 ACIA_TX_IRQ=0
 
 # Default address mode (basic/ext/.. )
-ADDRESS_MODE=ext
+ADDRESS_MODE=basic
 
 # Default clock mode (supported are: slow, 250k, 1m, 2m, 4m, 8m)
 CLOCK_MODE=1m
