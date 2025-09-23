@@ -57,10 +57,10 @@ ifneq ($(LOAD_LINK),static)
 endif
 
 # LCD operation - 4bit or 8bit
-ifneq ($(LCD_MODE),8bit)
-	LCD_MODULE=lcd4bit.s
-else
+ifneq ($(LCD_MODE),4bit)
 	LCD_MODULE=lcd8bit.s
+else
+	LCD_MODULE=lcd4bit.s
 endif
 
 # ACIA TX IRQ support
