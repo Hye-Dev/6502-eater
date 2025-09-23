@@ -36,6 +36,7 @@ FIRMWARE_PROJECTS = 01_nop_fill          \
                     23_blink_test        \
 										24_serial_wdc        \
 										25_serial_wdc_irq    \
+										26_print_howdy_c     \
                     minimal_bootloader   \
                     os1                  \
 										microsoft_basic
