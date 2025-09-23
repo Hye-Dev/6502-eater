@@ -18,3 +18,8 @@ init:
       txs
 
       jsr _main
+
+      ; If main somehow returns, loop forever
+loop:
+      nop
+      jmp loop
