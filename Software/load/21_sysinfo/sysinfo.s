@@ -17,7 +17,7 @@
         .import __SYSCALLS_SIZE__
         .import __VECTORS_SIZE__
         .import __VIA1_START__
-        .import __VIA1_START__  ; Changed to VIA1 since VIA2 hardware doesn't exist
+        .import __VIA2_START__
         .import __ACIA_START__
 
 
@@ -79,7 +79,7 @@ init:
         write_tty_address #__VIA1_START__
         jsr _tty_send_newline
         write_tty #via2_addr_msg
-        write_tty_address #__VIA1_START__  ; Changed to VIA1
+        write_tty_address #__VIA2_START__
         jsr _tty_send_newline
         write_tty #acia_addr_msg
         write_tty_address #__ACIA_START__
