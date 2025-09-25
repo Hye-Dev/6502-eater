@@ -2,7 +2,7 @@
         .include "macros.inc"
         .include "zeropage.inc"
 
-        .import __VIA2_START__
+        .import __VIA1_START__  ; Changed from __VIA2_START__ to __VIA1_START__
         .export via2_get_register
         .export _via2_get_register
         .export via2_set_register
@@ -11,52 +11,21 @@
         .code
 
 ; NEGATIVE C COMPLIANT
+; NOTE: These VIA2 functions now redirect to VIA1 hardware
+; since this system only has VIA1 physically present
 via2_get_register:
-; ; DUMB Code left here for reference. This is possibly the
-; ; most idiotic code I have written in years
-;       pha
-;       lda #<__VIA2_START__
-;       sta ptr1
-;       lda #>__VIA2_START__
-;       sta ptr1+1
-;       pla
-;       clc
-;       adc ptr1
-;       sta ptr1
-;       lda #$00
-;       adc ptr1+1
-;       sta ptr1+1
-;       lda (ptr1)
-;       rts
-        lda __VIA2_START__,X
+        lda __VIA1_START__,X    ; Changed from __VIA2_START__ to __VIA1_START__
         rts
 
 ; C version of the set register routine
 _via2_get_register:
         tax
-        lda __VIA2_START__,X
+        lda __VIA1_START__,X    ; Changed from __VIA2_START__ to __VIA1_START__
         rts
 
 ; NEGATIVE C COMPLIANT
 via2_set_register:
-; ; DUMB Code left here for reference. This is possibly the
-; ; most idiotic code I have written in years
-;       pha
-;       lda #<__VIA2_START__
-;       sta ptr1
-;       lda #>__VIA2_START__
-;       sta ptr1+1
-;       pla
-;       clc
-;       adc ptr1
-;       sta ptr1
-;       lda #$00
-;       adc ptr1+1
-;       sta ptr1+1
-;       txa
-;       sta (ptr1)
-;       rts
-        sta __VIA2_START__,X
+        sta __VIA1_START__,X    ; Changed from __VIA2_START__ to __VIA1_START__
         rts
 
 ; C version of the set register routine
@@ -65,6 +34,6 @@ _via2_set_register:
         lda (sp)
         tax
         pla
-        sta __VIA2_START__,X
+        sta __VIA1_START__,X    ; Changed from __VIA2_START__ to __VIA1_START__
         inc_ptr sp
         rts
